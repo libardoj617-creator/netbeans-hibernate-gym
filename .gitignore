@@ -1,0 +1,29 @@
+# Ignorar carpetas generadas por Maven
+target/
+
+# Ignorar archivos de configuración del sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos temporales de NetBeans / VS Code / IntelliJ
+nbproject/private/
+build/
+dist/
+out/
+
+# Archivos propios del IDE
+*.iml
+.idea/
+.vscode/
+
+# Logs y archivos temporales
+*.log
+*.tmp
+
+# Archivos de compilación
+*.class
+
+# Copias/respaldos
+*.bak
+*.swp
+*.swo
