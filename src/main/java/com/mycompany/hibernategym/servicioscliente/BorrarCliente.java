@@ -1,13 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.hibernategym.servicioscliente;
 
-/**
- *
- * @author hp
- */
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import com.mycompany.hibernategym.util.HibernateUtil;
+import com.mycompany.hibernategym.registroclientes.DatosClientes;
+
+
 public class BorrarCliente {
-    
+
+    public boolean eliminarCliente(int id) {
+        Transaction tx = null;
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            tx = session.beginTransaction();
+
+            DatosClientes cliente = session.get(DatosClientes.class, id);
+
+            if (cliente == null) {
+                tx.rollback(); // buena práctica: cerrar transacción si no se hace nada
+                return false;
+            }
+
+            session.remove(cliente);
+            tx.commit();
+            return true;
+
+        } catch (Exception e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
+
+

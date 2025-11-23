@@ -1,6 +1,6 @@
 package com.mycompany.hibernategym.servicioscliente;
 
-import com.mycompany.hibernategym.registroclientes.RegistroClientes;
+import com.mycompany.hibernategym.registroclientes.DatosClientes;
 import com.mycompany.hibernategym.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -18,7 +18,7 @@ public class Membresias {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
 
-        RegistroClientes cliente = session.get(RegistroClientes.class, idCliente);
+        DatosClientes cliente = session.get(DatosClientes.class, idCliente);
         if (cliente != null) {
             cliente.setEstadomembresia(true);
             cliente.setFechaFinMembresia(LocalDate.now().plusDays(diasPagados));
@@ -39,7 +39,7 @@ public class Membresias {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
 
-        RegistroClientes cliente = session.get(RegistroClientes.class, idCliente);
+        DatosClientes cliente = session.get(DatosClientes.class, idCliente);
         if (cliente != null && cliente.getFechaFinMembresia() != null) {
             if (LocalDate.now().isAfter(cliente.getFechaFinMembresia())) {
                 cliente.setEstadomembresia(false);

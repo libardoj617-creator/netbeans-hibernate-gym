@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "datosclientes")
-public class RegistroClientes {
+public class DatosClientes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,10 +27,10 @@ public class RegistroClientes {
     private LocalDate fechaFinMembresia;
 
     // Constructor vacío (requerido por Hibernate)
-    public RegistroClientes() {}
+    public DatosClientes() {}
 
     // Constructor con parámetros
-    public RegistroClientes(String nombre, int edad, String correo) {
+    public DatosClientes(String nombre, int edad, String correo) {
         this.nombre = nombre;
         this.edad = edad;
         this.correo = correo;
