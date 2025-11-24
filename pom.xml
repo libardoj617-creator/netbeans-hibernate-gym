@@ -1,40 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--  
+    Archivo POM (Project Object Model) del proyecto HibernateGym.
+    Este archivo define la configuración general del proyecto,
+    sus dependencias, versión de Java y plugins de ejecución.
+-->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+    <!-- Versión del modelo POM que se está usando -->
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mycompany</groupId>
-    <artifactId>HibernateGym</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <!-- Datos básicos del proyecto -->
+    <groupId>com.mycompany</groupId>      <!-- Nombre del grupo o empresa -->
+    <artifactId>HibernateGym</artifactId> <!-- Nombre del proyecto -->
+    <version>1.0-SNAPSHOT</version>       <!-- Versión del proyecto en desarrollo -->
+    <packaging>jar</packaging>            <!-- Tipo de empaquetado (jar ejecutable) -->
 
+    <!-- Propiedades del proyecto -->
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
-        <mainClass>com.mycompany.hibernategym.Main</mainClass>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- Codificación -->
+        <maven.compiler.release>21</maven.compiler.release>                 <!-- Versión de Java -->
+        <mainClass>com.mycompany.hibernategym.Main</mainClass>             <!-- Clase principal -->
     </properties>
 
-    <!-- 🚀 DEPENDENCIAS -->
+    <!-- ==========================================================
+         DEPENDENCIAS NECESARIAS PARA EL FUNCIONAMIENTO DEL PROYECTO
+         ========================================================== -->
     <dependencies>
 
-        <!-- Hibernate Core -->
+        <!-- Hibernate Core: ORM usado para mapear clases Java a tablas SQL -->
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>6.5.2.Final</version>
         </dependency>
 
-        <!-- MySQL JDBC Driver (VERSIÓN CORRECTA) -->
+        <!-- Conector JDBC de MySQL (versión estable 8.0.33). Permite a Hibernate 
+             comunicarse con la base de datos MySQL -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
         </dependency>
 
-        <!-- JUnit opcional -->
+        <!-- JUnit: Librería opcional para ejecutar pruebas unitarias -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -44,14 +57,18 @@
 
     </dependencies>
 
-    <!-- Ejecutar el Main -->
+    <!-- ==========================================
+         CONFIGURACIÓN PARA EJECUTAR LA CLASE MAIN
+         ========================================== -->
     <build>
         <plugins>
             <plugin>
+                <!-- Plugin que permite ejecutar el proyecto con Maven -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
+                    <!-- Clase que contiene el método main() -->
                     <mainClass>com.mycompany.hibernategym.Main</mainClass>
                 </configuration>
             </plugin>
