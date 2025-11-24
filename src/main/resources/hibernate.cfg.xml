@@ -1,17 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+    Archivo de configuración de Hibernate.
+
+    Aquí se definen:
+    - parámetros de conexión a la base de datos,
+    - el driver JDBC a utilizar,
+    - las credenciales,
+    - el dialecto SQL según el motor de BD,
+    - y las clases de entidad que Hibernate debe mapear.
+-->
+
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bd_gimnasio</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">1234</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="show_sql">true</property>
 
+        <!-- Driver JDBC de MySQL -->
+        <property name="hibernate.connection.driver_class">
+            com.mysql.cj.jdbc.Driver
+        </property>
+
+        <!-- URL de conexión a MySQL (base de datos bd_gimnasio) -->
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/bd_gimnasio
+        </property>
+
+        <!-- Usuario de MySQL -->
+        <property name="hibernate.connection.username">
+            root
+        </property>
+
+        <!-- Contraseña del usuario de MySQL -->
+        <property name="hibernate.connection.password">
+            1234
+        </property>
+
+        <!-- Dialecto SQL específico para MySQL -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <!-- Mostrar en consola todas las sentencias SQL ejecutadas por Hibernate -->
+        <property name="show_sql">
+            true
+        </property>
+
+        <!-- Mapeo de la clase de entidad DatosClientes -->
         <mapping class="com.mycompany.hibernategym.registroclientes.DatosClientes"/>
+
     </session-factory>
 </hibernate-configuration>
