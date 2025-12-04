@@ -24,7 +24,7 @@ public class Main {
         Session session = HibernateUtil.getSessionFactory().openSession();   //inicia seccion
         Transaction tx = session.beginTransaction();
 
-        DatosClientes c1 = new DatosClientes("Evelin Luna", 25, "evelin.luna@gmail.com");
+        DatosClientes c1 = new DatosClientes("Evelin Luna", 25, "evelin.l@gmail.com");
         DatosClientes c2 = new DatosClientes("Jose Ortiz", 45, "jose.ortiz@gmail.com");
         DatosClientes c3 = new DatosClientes("Estefania Ardila", 31, "sthefanialean@gmail.com");
         DatosClientes c4 = new DatosClientes("Jeiler Riascos", 24, "jeiler.riascos@gmail.com");

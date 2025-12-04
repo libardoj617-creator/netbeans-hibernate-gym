@@ -34,9 +34,9 @@
 
         <!-- Hibernate Core: ORM usado para mapear clases Java a tablas SQL -->
         <dependency>
-            <groupId>org.hibernate.orm</groupId>
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>6.5.2.Final</version>
+            <version>5.6.15.Final</version>
         </dependency>
 
         <!-- Conector JDBC de MySQL (versión estable 8.0.33). Permite a Hibernate 

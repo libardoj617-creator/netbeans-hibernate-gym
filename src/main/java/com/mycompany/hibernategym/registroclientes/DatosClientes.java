@@ -1,6 +1,6 @@
 package com.mycompany.hibernategym.registroclientes;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
